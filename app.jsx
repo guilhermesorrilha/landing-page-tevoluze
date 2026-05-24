@@ -88,17 +88,6 @@ const HeroLogo = () => (
     textAlign: 'center',
     position: 'relative',
   }}>
-    <div style={{
-      position: 'absolute',
-      top: '40%', left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 'min(900px, 90vw)',
-      height: '420px',
-      background: 'radial-gradient(ellipse, rgba(242,201,76,0.06) 0%, transparent 65%)',
-      pointerEvents: 'none',
-      zIndex: 0,
-    }} />
-
     <img
       src={window.__resources.logoPng}
       alt="Teodozio Barbearia"
@@ -110,7 +99,6 @@ const HeroLogo = () => (
         height: 'auto',
         display: 'block',
         objectFit: 'contain',
-        filter: 'drop-shadow(0 6px 24px rgba(242,201,76,0.18))',
       }}
     />
   </header>
@@ -219,7 +207,11 @@ const FeaturedCard = ({ item, ctaLabel, accentColor }) => {
 
 const CardItem = ({ item, index, accentColor }) => {
   const [hov, setHov] = React.useState(false);
-  const openLink = () => { if (item.link) window.open(item.link, '_blank', 'noopener'); };
+  const isComingSoon = !!item.comingSoon;
+  const openLink = () => {
+    if (isComingSoon) return;
+    if (item.link) window.open(item.link, '_blank', 'noopener');
+  };
 
   return (
     <div
@@ -229,11 +221,11 @@ const CardItem = ({ item, index, accentColor }) => {
       style={{
         position: 'relative',
         aspectRatio: '1/1',
-        cursor: item.link ? 'pointer' : 'default',
+        cursor: isComingSoon ? 'default' : (item.link ? 'pointer' : 'default'),
         overflow: 'hidden',
         background: T.surface,
         borderRadius: '6px',
-        outline: hov ? `1.5px solid ${accentColor}` : '1px solid transparent',
+        outline: hov && !isComingSoon ? `1.5px solid ${accentColor}` : '1px solid transparent',
         outlineOffset: hov ? '0px' : '0px',
         transition: 'outline-color 200ms ease',
       }}
@@ -246,17 +238,45 @@ const CardItem = ({ item, index, accentColor }) => {
               display: 'block', width: '100%', height: '100%',
               objectFit: 'cover',
               transition: 'transform 350ms ease',
-              transform: hov ? 'scale(1.06)' : 'scale(1)',
+              transform: hov && !isComingSoon ? 'scale(1.06)' : 'scale(1)',
             }}
           />
         : <PlaceholderImg index={index + 1} />
       }
       <div style={{
         position: 'absolute', inset: 0,
-        background: `rgba(242,201,76,${hov ? '0.05' : '0'})`,
+        background: `rgba(242,201,76,${hov && !isComingSoon ? 0.05 : 0})`,
         transition: 'background 200ms ease',
         pointerEvents: 'none',
       }} />
+
+      {isComingSoon && (
+        <>
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'rgba(10,10,10,0.65)',
+            pointerEvents: 'none',
+          }} />
+          <div style={{
+            position: 'absolute', inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            pointerEvents: 'none',
+          }}>
+            <span style={{
+              fontFamily: T.sans,
+              fontSize: 'clamp(13px, 1.6vw, 16px)',
+              fontWeight: 400,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: accentColor,
+            }}>
+              Em breve
+            </span>
+          </div>
+        </>
+      )}
     </div>
   );
 };
@@ -346,7 +366,7 @@ const GRID_ITEMS = [
   { image: null, link: 'https://hotmart.com',          alt: 'Curso 1' },
   { image: null, link: 'https://sympla.com.br',        alt: 'Evento 1' },
   { image: null, link: 'https://wa.me/5511999990000',  alt: 'Produto 3' },
-  { image: null, link: 'https://hotmart.com',          alt: 'Curso 2' },
+  { image: null, link: 'https://hotmart.com',          alt: 'Curso 2', comingSoon: true },
 ];
 
 const ShareButton = ({ accentColor }) => {
