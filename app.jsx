@@ -88,6 +88,17 @@ const HeroLogo = () => (
     textAlign: 'center',
     position: 'relative',
   }}>
+    <div style={{
+      position: 'absolute',
+      top: '40%', left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 'min(900px, 90vw)',
+      height: '420px',
+      background: 'radial-gradient(ellipse, rgba(242,201,76,0.06) 0%, transparent 65%)',
+      pointerEvents: 'none',
+      zIndex: 0,
+    }} />
+
     <img
       src={window.__resources.logoPng}
       alt="Teodozio Barbearia"
@@ -99,6 +110,7 @@ const HeroLogo = () => (
         height: 'auto',
         display: 'block',
         objectFit: 'contain',
+        filter: 'drop-shadow(0 6px 24px rgba(242,201,76,0.18))',
       }}
     />
   </header>
