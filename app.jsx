@@ -101,7 +101,7 @@ const HeroLogo = () => (
 
     <img
       src={window.__resources.logoPng}
-      alt="Teodozio Barbearia"
+      alt="Tevoluze Academy"
       className="logo-in"
       style={{
         position: 'relative',
@@ -277,9 +277,9 @@ const CardItem = ({ item, index, accentColor }) => {
             pointerEvents: 'none',
           }}>
             <span style={{
-              fontFamily: T.sans,
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: 'clamp(13px, 1.6vw, 16px)',
-              fontWeight: 400,
+              fontWeight: 500,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
               color: accentColor,
@@ -361,7 +361,7 @@ const LandingFooter = ({ accentColor, whatsappNumber }) => {
           letterSpacing: '0.04em',
           textAlign: 'center',
         }}>
-          © 2026 Teodozio Barbearia. Todos os direitos reservados.
+          © 2026 Tevoluze Academy. Todos os direitos reservados.
         </div>
       </div>
     </footer>
@@ -387,8 +387,8 @@ const ShareButton = ({ accentColor }) => {
 
   const handleShare = async () => {
     const data = {
-      title: 'Teodozio Barbearia',
-      text: 'Cursos e eventos do Teodozio',
+      title: 'Tevoluze Acadeny',
+      text: 'Cursos e eventos da Tevoluze',
       url: window.location.href,
     };
     try {
