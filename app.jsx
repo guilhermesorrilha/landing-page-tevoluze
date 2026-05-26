@@ -11,7 +11,7 @@ const T = {
 
 const CONTENT = {
   accentColor: "#f2c94c",
-  introText: "Sou Daniel Teodozio, barbeiro há mais de 10 anos. Aqui você encontra meus cursos, eventos e bastidores do ofício — pra quem quer afiar a técnica e curtir o caminho.",
+  introText: "Sou Daniel Teodozio, barbeiro há mais de 10 anos. Aqui você encontra meus cursos, eventos e bastidores — pra quem quer transformar um melhor caminho.",
   ctaLabel: "Saiba mais",
   showIntro: true,
   whatsappNumber: "5511999990000",
@@ -282,7 +282,7 @@ const CardItem = ({ item, index, accentColor }) => {
               fontWeight: 500,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: accentColor,
+              color: '#d8d0c0',
             }}>
               Em breve
             </span>
@@ -417,21 +417,21 @@ const ShareButton = ({ accentColor }) => {
         alignItems: 'center',
         gap: '8px',
         padding: '9px 14px',
-        background: hov ? 'rgba(242,201,76,0.12)' : 'rgba(28,26,23,0.7)',
+        background: hov ? 'rgba(216,208,192,0.12)' : 'rgba(28,26,23,0.7)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
-        border: `1px solid ${hov ? 'rgba(242,201,76,0.5)' : 'rgba(242,201,76,0.18)'}`,
+        border: `1px solid ${hov ? 'rgba(216,208,192,0.5)' : 'rgba(216,208,192,0.18)'}`,
         borderRadius: '999px',
         cursor: 'pointer',
         fontFamily: T.sans,
         fontSize: '12px',
         fontWeight: 600,
         letterSpacing: '0.01em',
-        color: shared ? '#9be08b' : accentColor,
+        color: shared ? '#9be08b' : '#d8d0c0',
         transition: 'all 200ms ease',
       }}
     >
-      {shared ? <CheckIcon size={15} color="#9be08b" /> : <ShareIcon size={15} color={accentColor} />}
+      {shared ? <CheckIcon size={15} color="#9be08b" /> : <ShareIcon size={15} color="#d8d0c0" />}
       <span>{shared ? 'Link copiado' : 'Compartilhar'}</span>
     </button>
   );
