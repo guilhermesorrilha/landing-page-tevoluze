@@ -277,10 +277,10 @@ const CardItem = ({ item, index, accentColor }) => {
             pointerEvents: 'none',
           }}>
             <span style={{
-              fontFamily: "'DM Sans', sans-serif",
+              fontFamily: "'Nunito', sans-serif",
               fontSize: 'clamp(13px, 1.6vw, 16px)',
-              fontWeight: 500,
-              letterSpacing: '0.18em',
+              fontWeight: 400,
+              letterSpacing: '0.1em',
               textTransform: 'uppercase',
               color: '#d8d0c0',
             }}>
@@ -310,7 +310,7 @@ const LandingFooter = ({ accentColor, whatsappNumber }) => {
   return (
     <footer style={{
       marginTop: '80px',
-      borderTop: '1px solid rgba(242,201,76,0.1)',
+      borderTop: '1px solid rgba(255,255,255,0.04)',
       background: '#0f0f0f',
       padding: 'clamp(40px, 5vw, 56px) 24px clamp(28px, 3vw, 36px)',
     }}>
@@ -348,13 +348,6 @@ const LandingFooter = ({ accentColor, whatsappNumber }) => {
         </a>
 
         <div style={{
-          width: '48px',
-          height: '1px',
-          background: accentColor,
-          opacity: 0.6,
-        }} />
-
-        <div style={{
           fontFamily: T.sans,
           fontSize: '11px',
           color: T.dimmed,
@@ -370,7 +363,7 @@ const LandingFooter = ({ accentColor, whatsappNumber }) => {
 
 const FEATURED = {
   image: null,
-  link: 'https://hotmart.com',
+  link: 'https://www.sympla.com.br/evento/gestao-de-barbearia-tevoluze-academy/3440361?share_id=copiarlink&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZnRzaASFynRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadGQpcqDKXfCH69wYD51SMHAzIqGH2RyLe-cm9ur37wmI40xF_HPWv7dIkwSQ_aem_rtqi88yFY8AzjEyBlY_ZAg&utm_id=97760_v0_s00_e0_tv3&referrer=l.instagram.com&referrer=l.instagram.com',
   alt: 'Curso em destaque',
 };
 
