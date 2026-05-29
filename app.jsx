@@ -279,7 +279,7 @@ const CardItem = ({ item, index, accentColor }) => {
             <span style={{
               fontFamily: "'Nunito', sans-serif",
               fontSize: 'clamp(13px, 1.6vw, 16px)',
-              fontWeight: 400,
+              fontWeight: 500,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
               color: '#d8d0c0',
